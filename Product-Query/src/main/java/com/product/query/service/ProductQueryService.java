@@ -19,7 +19,6 @@ public class ProductQueryService {
     public List<Product> getProducts(){
         return  repo.findAll();
     }
-
     @KafkaListener(topics = "product-event-topic",groupId = "product-event-group")
     public void processProductEvents(ProductEvent productEvent){
         Product product = productEvent.getProduct();
